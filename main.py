@@ -1,16 +1,16 @@
-# This is a sample Python script.
+import pandas as pd
+import pymssql
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+con = pymssql.connect(server='10.77.23.177', user='teradev2', password='P@ssw0rd', database='PG_WORK')
+cur = con.cursor()
+
+#cur.execute("SELECT * FROM dbo.tbl_ContactStatus")
+cur.execute("SELECT column_name, column_default, data_type FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = 'tbl_ContactStatus'")
+data=cur.fetchall()
+
+df=pd.DataFrame(data)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+cur.close()
+con.close()

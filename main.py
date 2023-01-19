@@ -4,17 +4,20 @@ from migrator import migrator
 
 contact_migrator = migrator('tbl_ContactStatus', '_system_catalogs', 'ContactStatus')
 contact_migrator.auto_map_columns()
-while True:
-    print('Do you want map another columns? (y/n')
-    match input().lower():
-        case 'y':
-            contact_migrator.manual_map_columns()
-            break
-        case 'n':
-            break
-        case '_':
-            print('Incorrect variant')
-            pass
+# while True:
+#     print('Do you want map another columns? (y/n')
+#     match input().lower():
+#         case 'y':
+#             contact_migrator.manual_map_columns()
+#             break
+#         case 'n':
+#             break
+#         case '_':
+#             print('Incorrect variant')
+#             pass
+
+contact_migrator.manual_map_columns()
+contact_migrator.migrate()
 # df = pd.DataFrame(data)#, columns=["Id", "Name"])
 # print((sys.-[=0pgetsizeof(df)/1024)/1024)
 # df = df.reset_index()

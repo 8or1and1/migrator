@@ -7,6 +7,7 @@ class elmaConnector:
         token = config['token']
         self.address = '{}/pub/v1/app/{}/{}/'.format(address, namespace, code)
         self.headers = {"Authorization": "Bearer {}".format(token)}
+        self.column_names = self.get_column_names()
 
     def api_request(self, method, payload=None):
         if payload is None:

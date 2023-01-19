@@ -1,22 +1,25 @@
-import pandas as pd
-import pymssql
-import elma
+# _system_catalogs ContactStatus tbl_ContactStatus
 
-con = pymssql.connect(server='10.77.23.177', user='teradev2', password='P@ssw0rd', database='PG_WORK')
-cur = con.cursor()
+from migrator import migrator
 
-cur.execute("SELECT Id, Name FROM dbo.tbl_ContactStatus")
-data = cur.fetchall()
-# cur.execute(
-#     "SELECT column_name, column_default, data_type FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = 'tbl_ContactStatus'")
-# columns = cur.fetchall()
-cur.close()
-con.close()
-df = pd.DataFrame(data, columns=["Id", "Name"])
-print(df)
-df = df.reset_index()
-for index, row in df.iterrows():
-    elma.create_element(row['Id'], row['Name'])
-    print(row['Id'], row['Name'])
-columnNames = elma.get_elma_column_names()
-print('x')
+contact_migrator = migrator('tbl_ContactStatus', '_system_catalogs', 'ContactStatus')
+contact_migrator.auto_map_columns()
+while True:
+    print('Do you want map another columns? (y/n')
+    match input().lower():
+        case 'y':
+            contact_migrator.manual_map_columns()
+            break
+        case 'n':
+            break
+        case '_':
+            print('Incorrect variant')
+            pass
+# df = pd.DataFrame(data)#, columns=["Id", "Name"])
+# print((sys.-[=0pgetsizeof(df)/1024)/1024)
+# df = df.reset_index()
+# for index, row in df.iterrows():
+#     elma.create_element(row['Id'], row['Name'])
+#     #print(row['Id'], row['Name'])
+# columnNames = elmaConnector.get_elma_column_names()
+# print('x')

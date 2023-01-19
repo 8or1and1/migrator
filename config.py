@@ -1,0 +1,2 @@
+terrasoft_config = {'server':'10.77.23.177', 'user':'teradev2', 'password':'P@ssw0rd', 'database':'PG_WORK'}
+elma_config = {'address':'https://ddvowxahv2jug.elma365.ru', 'token':'e5e0da91-644e-43ac-aad9-3f39ff066cf4'}

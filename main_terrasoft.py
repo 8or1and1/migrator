@@ -5,7 +5,7 @@ from migrator import migrator
 contact_migrator = migrator('tbl_ContactStatus', '_system_catalogs', 'ContactStatus')
 contact_migrator.auto_map_columns()
 while True:
-    print('Do you want map another columns? (y/n')
+    print('Do you want map another columns? (y/n)')
     match input().lower():
         case 'y':
             contact_migrator.manual_map_columns()

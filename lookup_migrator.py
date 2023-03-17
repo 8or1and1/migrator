@@ -8,7 +8,7 @@ class LookupMigrator:
         self.elma_columns = None
         self.data = None
         self.elma_from = elmaConnector(config.elma_from_config, elma_namespace, elma_code)
-        self.elma_to = elmaConnector(config.elma_client_config, elma_namespace, elma_code)
+        self.elma_to = elmaConnector(config.elma_to_config, elma_namespace, elma_code)
 
     def get_data_from_source(self):
         self.data = self.elma_from.get_data()

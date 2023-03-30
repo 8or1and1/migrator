@@ -2,8 +2,7 @@
 import time
 from lookup_migrator import LookupMigrator as migrator
 #'ContractTypes', 'KmkProjecType', 'KmkAccountType', 'KmkClientStatus',
-lookup_names = ['DocumentType', 'KmkOutgoingDocumentType', 'KmkIncomingDocumentType', 'KmkDocumentSendingType',
-                'KmkDeliveryTerm','KmkDeliveryMethods','KmkDeliveryServices','KmkOutgoingDocumentStatus','KmkIncomingDocumentsAndReturnsStatuses']
+lookup_names = ['KmkSysSettings']
 
 for lookup_name in lookup_names:
     print(lookup_name)

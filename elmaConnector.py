@@ -30,6 +30,5 @@ class elmaConnector:
         return data  # pd.DataFrame.from_dict(data, orient='columns')
 
     def create_element(self, fields):
-        # pass
         payload = {'Context':fields}
         response = self.api_request('create', payload)
